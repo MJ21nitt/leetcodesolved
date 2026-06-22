@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select sign.user_id, round(ifnull (sum( CASE when conf.action='confirmed' then 1 else 0 end)/count(conf.action),0),2) as confirmation_rate from Signups as sign left join Confirmations as conf on sign.user_id=conf.user_id group by sign.user_id;
